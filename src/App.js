@@ -29,7 +29,6 @@ function App() {
     const enteredNumber = parseInt(event.target.guess.value, 10);
     console.log(event.target.guess.value)
     if(enteredNumber === game.number) {
-      console.log('правильно');
       toast.custom((t) => (
         <div className="toast">
           <p>You guessed it! 🎉</p>
@@ -38,16 +37,6 @@ function App() {
             onClick={() => {
               // Закрытие уведомления только при нажатии на кнопку
               toast.dismiss(t.id);  
-              console.log("Кнопка нажата!");
-
-              // // Сбросить состояние для нового раунда
-              // setGame({
-              //   number: getRandomNumber(1, 10),
-              //   attempts: 2
-              // });
-
-              // // Показать поле ввода снова после новой игры
-              // setInputVisible(true); 
               window.location.reload();
             }} 
             className="toast-action-button"
@@ -62,7 +51,6 @@ function App() {
       inputRef.current.value = "";
     } else {
       if (game.attempts > 0) {
-        console.log(`неправильно, осталось ${game.attempts} попытки`);
         toast.error(`Try again. Attempts left ${game.attempts}`, { duration: 2000 });
         // Очищаем инпут при неверном вводе
         inputRef.current.value = "";
@@ -80,17 +68,6 @@ function App() {
               onClick={() => {
                 // Закрытие уведомления только при нажатии на кнопку
                 toast.dismiss(t.id);  
-                console.log("Кнопка нажата!");
-  
-                // // Сбросить состояние для нового раунда
-                // setGame({
-                //   number: getRandomNumber(1, 10),
-                //   attempts: 2
-                // });
-  
-                // // Показать поле ввода снова после новой игры
-                // setInputVisible(true); 
-
                 window.location.reload();
               }} 
               className="toast-action-button"
